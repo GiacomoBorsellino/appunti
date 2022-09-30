@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
 
-  public imgSrc = '../../../assets/loacker1.png';
   constructor() { }
 
   ngOnInit() {
