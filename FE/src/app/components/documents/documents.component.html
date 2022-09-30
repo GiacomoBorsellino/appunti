@@ -1,3 +1,4 @@
-<ul>
+<app-loader *ngIf="loading"></app-loader>
+<ul *ngIf="!loading">
     <li *ngFor="let document of documentList">{{document.title}}</li>
 </ul>

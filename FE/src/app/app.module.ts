@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DocumentsComponent } from './components/documents/documents.component';
 
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   exports: [
@@ -13,7 +14,8 @@ import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
   ],
   declarations: [
     AppComponent,
-    DocumentsComponent
+    DocumentsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

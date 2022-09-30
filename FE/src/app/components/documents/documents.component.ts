@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 // Services
 import { DocumentsService } from '../documents/documents.service';
@@ -14,6 +14,7 @@ import { Document } from '../../models/document.model';
 })
 export class DocumentsComponent implements OnInit {
 
+  public loading = true;
   public documentList: ArrayResponse<Document>;
 
   constructor(
@@ -24,10 +25,12 @@ export class DocumentsComponent implements OnInit {
 
   ngOnInit() {
     this.DocumentService.getDocuments().subscribe((res: ArrayResponse<Document>) => {
-      console.log(res);
-      this.documentList = res;
-      console.log(this.documentList);
-
+      if (res) {
+        console.log(res);
+        this.documentList = res;
+        console.log(this.documentList);
+      }
+      this.loading = false;
     })
   }
 
