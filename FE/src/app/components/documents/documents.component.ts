@@ -14,17 +14,19 @@ import { Document } from '../../models/document.model';
 })
 export class DocumentsComponent implements OnInit {
 
-  public documentList: Document[];
+  public documentList: ArrayResponse<Document>;
 
   constructor(
     public DocumentService: DocumentsService
   ) {
-    this.documentList = []
+    this.documentList
   }
 
   ngOnInit() {
-    this.DocumentService.getDocuments().subscribe((res) => {
+    this.DocumentService.getDocuments().subscribe((res: ArrayResponse<Document>) => {
       console.log(res);
+      this.documentList = res;
+      console.log(this.documentList);
 
     })
   }
