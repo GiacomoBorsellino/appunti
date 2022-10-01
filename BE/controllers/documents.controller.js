@@ -11,7 +11,7 @@ exports.getDocuments = async (req, res, next) => {
         const documents = await prisma.document.findMany({})
         res.json(documents)
     } catch {
-        console.lof('non va')
+        console.log('non va')
         next();
     }
 };
