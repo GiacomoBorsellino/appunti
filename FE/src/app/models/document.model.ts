@@ -2,6 +2,7 @@ export class Document {
   id: number;
   title: String;
   content: String;
+  thumbnail: String
   published: Boolean;
   createdAt: String;
 
@@ -9,6 +10,7 @@ export class Document {
     this.id = 0;
     this.title = '';
     this.content = '';
+    this.thumbnail = ''
     this.published = true;
     this.createdAt = '';
   }

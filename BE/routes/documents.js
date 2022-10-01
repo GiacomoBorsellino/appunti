@@ -16,6 +16,9 @@ const controller = require("../controllers/documents.controller");
 /** GET di tutti i documenti */
 router.get('/documents', controller.getDocuments);
 
+/** DOWNLOAD di un documento */
+router.get('/downloadDocument', controller.downloadDocument);
+
 // [authJwt.verifyToken],
 /** GET di un documento */
 // router.get('/api/v1/documents/:id', controller.getDocument);

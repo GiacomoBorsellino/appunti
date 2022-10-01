@@ -27,7 +27,7 @@ app.use('/api/v1', documentsRouter);
 
 /** Gestione Route non trovata */
 app.use((req, res, next) => {
-    next(createError.NotFound());
+    next({ message: "error" });
 });
 
 app.use((err, req, res, next) => {

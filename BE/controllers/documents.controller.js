@@ -12,6 +12,20 @@ exports.getDocuments = async (req, res, next) => {
         res.json(documents)
     } catch {
         console.log('non va')
+        res.json({ message: "error" })
+    }
+};
+
+exports.downloadDocument = async (req, res, next) => {
+    const { id } = req.params
+    try {
+        const document = await prisma.document.findUnique({
+            where: {
+                id: Number(id)
+            }
+        })
+        res.json(document)
+    } catch {
         next();
     }
 };

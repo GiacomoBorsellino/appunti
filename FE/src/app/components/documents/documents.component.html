@@ -1,4 +1,12 @@
 <app-loader *ngIf="loading"></app-loader>
+<h1>Documenti</h1>
 <ul *ngIf="!loading">
-    <li *ngFor="let document of documentList">{{document.title}}</li>
+    <li *ngFor="let document of documentList">{{document.title}}
+        <div>
+            <img src="../../../assets/thumbnails/1.png" alt="{{element.title}}" />
+            <h1>{{document.title}}</h1>
+            <p>{{document.content}}</p>
+            <button onclick="downloadDocument(element.id)">Download</button>
+        </div>
+    </li>
 </ul>

@@ -24,15 +24,29 @@ export class DocumentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.DocumentService.getDocuments().subscribe((res: ArrayResponse<Document>) => {
-        if (res) {
-          this.documentList = res;
-          console.log(this.documentList);
-        }
+    this.DocumentService.getDocuments().subscribe((res: any) => {
+      console.log(res.message);
+
+      if (res.message !== "error") {
+        this.documentList = res;
         this.loading = false;
-      })
-    }, 5000)
+      } else {
+        console.log("error");
+
+        this.loading = false;
+      }
+    })
+
+  }
+
+  downloadDocument(id: Number) {
+    let idDocument = id;
+    this.DocumentService.downloadDocument(idDocument).subscribe((res) => {
+      if (res) {
+        console.log('Download approvato');
+
+      }
+    })
   }
 
 }

@@ -11,8 +11,7 @@ import { Observable } from 'rxjs';
 
 export class DocumentsService {
 
-  private readonly documentsApiUrl = `${environment.apiUrl}/${environment.apiVersion
-    }/documents`;
+  private readonly documentsApiUrl = `${environment.apiUrl}/${environment.apiVersion}`;
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +21,17 @@ export class DocumentsService {
     // let params = new HttpParams()
     // .set('numRows', pagination.itemsPerPage.toString())
 
-    return this.http.get<ArrayResponse<Document>>(`${this.documentsApiUrl}`, {
+    return this.http.get<ArrayResponse<Document>>(`${this.documentsApiUrl}/documents`, {
       // params: params
+    });
+  }
+
+  public downloadDocument(idDocument): Observable<Document> {
+    let params = new HttpParams()
+      .set('idDocument', idDocument)
+
+    return this.http.get<Document>(`${this.documentsApiUrl}/downloadDocument`, {
+      params: params
     });
   }
 }
