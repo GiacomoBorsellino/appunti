@@ -1,12 +1,24 @@
 <app-loader *ngIf="loading"></app-loader>
-<h1>Documenti</h1>
-<ul *ngIf="!loading">
-    <li *ngFor="let document of documentList">{{document.title}}
-        <div>
-            <img src="../../../assets/thumbnails/1.png" alt="{{element.title}}" />
-            <h1>{{document.title}}</h1>
-            <p>{{document.content}}</p>
-            <button onclick="downloadDocument(element.id)">Download</button>
-        </div>
-    </li>
-</ul>
+
+<div *ngIf="!loading" class="documents">
+    <h1>Documenti</h1>
+
+    <ul>
+        <li *ngFor="let document of documentList">
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img style="width: 60%;" src="{{document.thumbnail}}">
+                    </div>
+                    <div class="contentBx">
+                        <h2>{{document.title}}</h2>
+                        <div class="content">
+                            <h3>{{document.content}}</h3>
+                        </div>
+                        <a href="#" style="background-color: rgb(51, 51, 51); color: white;">Scarica</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

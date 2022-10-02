@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset foglio di stile */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px !important;
+    padding: 0px !important;
+    box-sizing: border-box !important;
+}
