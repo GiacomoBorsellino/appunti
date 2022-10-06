@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const { PrismaClient } = require('@prisma/client');
+const { equal } = require('assert');
 
 /** Import del Model Document da Schema Prisma */
 const prisma = new PrismaClient()
@@ -17,11 +18,15 @@ exports.getDocuments = async (req, res, next) => {
 };
 
 exports.downloadDocument = async (req, res, next) => {
-    const { id } = req.params
+    console.log(req.params)
+    const title = req.params.titleDocument
+    console.log(':::', title);
     try {
         const document = await prisma.document.findUnique({
             where: {
-                id: Number(id)
+                title: {
+                    contains: title
+                },
             }
         })
         res.json(document)

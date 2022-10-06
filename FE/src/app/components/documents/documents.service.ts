@@ -26,12 +26,9 @@ export class DocumentsService {
     });
   }
 
-  public downloadDocument(idDocument): Observable<Document> {
-    let params = new HttpParams()
-      .set('idDocument', idDocument)
-
-    return this.http.get<Document>(`${this.documentsApiUrl}/downloadDocument`, {
-      params: params
-    });
+  public downloadDocument(titleDocument): Observable<Document> {
+    let document = titleDocument.toLowerCase().replaceAll(".", "");
+    console.log(document);
+    return this.http.get<Document>(`${this.documentsApiUrl}/downloadDocument/${document}`)
   }
 }

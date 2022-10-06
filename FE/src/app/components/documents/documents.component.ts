@@ -39,12 +39,11 @@ export class DocumentsComponent implements OnInit {
 
   }
 
-  downloadDocument(id: Number) {
-    let idDocument = id;
-    this.DocumentService.downloadDocument(idDocument).subscribe((res) => {
+  downloadDocument(title: String) {
+    let titleDocument = title;
+    this.DocumentService.downloadDocument(titleDocument).subscribe((res) => {
       if (res) {
         console.log('Download approvato');
-
       }
     })
   }
